@@ -82,14 +82,12 @@ class CatalogueTest(unittest.TestCase):
             print("*"*30)
     
     def test_create_entity(self):
-        for entity in self.testVector["create_entity"]:
             result = self.cat.get_item(self.testVector["create_entity"])
             print(f"DOCUMENTS: {result.documents}")
             print(f"STATUS: {result.status}")
 
 
     def test_update_entity(self):
-        for entity in self.testVector["create_entity"]:
             result = self.cat.update_item(self.testVector["create_entity"])
             print(f"DOCUMENTS: {result.documents}")
             print(f"STATUS: {result.status}")
