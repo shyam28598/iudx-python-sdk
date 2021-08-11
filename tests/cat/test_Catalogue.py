@@ -73,6 +73,30 @@ class CatalogueTest(unittest.TestCase):
             print(f"TOTAL HITS: {result.total_hits}")
             print("*"*30)
 
+    def test_create_entity(self):
+        for entity in self.testVector["create_entity"]:
+            result = self.cat.get_item(self.testVector["create_entity"])
+            print(f"DOCUMENTS: {result.documents}")
+            print(f"STATUS: {result.status}")
+
+
+    def test_update_entity(self):
+        for entity in self.testVector["create_entity"]:
+            result = self.cat.update_item(self.testVector["create_entity"])
+            print(f"DOCUMENTS: {result.documents}")
+            print(f"STATUS: {result.status}")
+
+    def test_delete_entity(self):
+        for entity in self.testVector["delete_entity"]:
+            result = self.cat.delete_item(entity[0], )
+            print(f"DOCUMENTS: {result.documents}")
+            print(f"STATUS: {result.status}")
+
+
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

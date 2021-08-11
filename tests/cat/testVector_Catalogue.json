@@ -37,5 +37,16 @@
             "datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Pune Railway Station_2811",
             "provider"
         ]
-    ]
+    ],
+    "create_entity":{
+        "@context": "https://voc.iudx.org.in/",
+        "name": "example_name",
+        "type": [
+          "iudx:Resource"
+        ],
+        "instance": "name of the instance to which this item belongs"
+    },
+    "delete_entity" :["datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Pune Railway Station_2811"]
+
+
 }

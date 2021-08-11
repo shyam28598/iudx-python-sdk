@@ -165,7 +165,7 @@ class Catalogue():
             cat_result.status = result_data["status"]
         return cat_result
 
-    def create(self, item: Dict[str, Any]) -> CatalogueResult:
+    def create_item(self, item: Dict[str, Any]) -> CatalogueResult:
         """Pydoc heading.
 
         Args:
@@ -184,7 +184,7 @@ class Catalogue():
             cat_result.documents = result_data["results"]
         return cat_result
 
-    def update(self, item: Dict[str, Any]) -> CatalogueResult:
+    def update_item(self, item: Dict[str, Any]) -> CatalogueResult:
         """Pydoc heading.
 
         Args:
@@ -203,7 +203,7 @@ class Catalogue():
             cat_result.documents = result_data["results"]
         return cat_result
 
-    def delete(self, iid: str) -> CatalogueResult:
+    def delete_item(self, iid: str) -> CatalogueResult:
         """Pydoc heading.
 
         Args:
