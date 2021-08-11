@@ -182,7 +182,7 @@ class Catalogue():
         if response.get_status_code() == 200:
             cat_result.status = result_data["status"]
             cat_result.documents = result_data["results"]
-        return self
+        return cat_result
 
     def update(self, item: Dict[str, Any]) -> CatalogueResult:
         """Pydoc heading.
@@ -201,7 +201,7 @@ class Catalogue():
         if response.get_status_code() == 200:
             cat_result.status = result_data["status"]
             cat_result.documents = result_data["results"]
-        return self
+        return cat_result
 
     def delete(self, iid: str) -> CatalogueResult:
         """Pydoc heading.
@@ -221,7 +221,7 @@ class Catalogue():
         if response.get_status_code() == 200:
             cat_result.status = result_data["status"]
             cat_result.documents = result_data["results"]
-        return self
+        return cat_result
 
     def validate(self, item: Dict[str, Any]) -> bool:
         """Pydoc heading.
