@@ -3,7 +3,10 @@
 Catalogue.py
 """
 
+from iudx.auth.Token import Token
 from typing import TypeVar, Generic, Any, List, Dict
+
+from requests.models import Response
 
 from iudx.common.HTTPEntity import HTTPEntity
 from iudx.common.HTTPResponse import HTTPResponse
@@ -170,6 +173,15 @@ class Catalogue():
         Returns:
             returned-varaible (returned-varaible-type): return-variable-description
         """
+        url = self.url + "/item"
+        http_entity = HTTPEntity()
+        response :  HTTPResponse  = http_entity.post(url, self.item, self.token)
+        result_data = response.get_json()
+        
+        cat_result = CatalogueResult()
+        if response.get_status_code() == 200:
+            cat_result.status = result_data["status"]
+            cat_result.documents = result_data["results"]
         return self
 
     def update(self, item: Dict[str, Any]) -> CatalogueResult:
@@ -180,6 +192,15 @@ class Catalogue():
         Returns:
             returned-varaible (returned-varaible-type): return-variable-description
         """
+        url = self.url + "/item"
+        http_entity = HTTPEntity()
+        response :  HTTPResponse  = http_entity.update(url, self.item, self.token)
+        result_data = response.get_json()
+
+        cat_result = CatalogueResult()
+        if response.get_status_code() == 200:
+            cat_result.status = result_data["status"]
+            cat_result.documents = result_data["results"]
         return self
 
     def delete(self, iid: str) -> CatalogueResult:
@@ -190,6 +211,16 @@ class Catalogue():
         Returns:
             returned-varaible (returned-varaible-type): return-variable-description
         """
+        url = self.url + "/item"
+        url = url + "?" + "id=" + iid
+        http_entity = HTTPEntity()
+        response :  HTTPResponse  = http_entity.delete(url, self.token)
+        result_data = response.get_json()
+        
+        cat_result = CatalogueResult()
+        if response.get_status_code() == 200:
+            cat_result.status = result_data["status"]
+            cat_result.documents = result_data["results"]
         return self
 
     def validate(self, item: Dict[str, Any]) -> bool:
