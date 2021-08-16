@@ -125,7 +125,7 @@
         "instance": "pune"
       },
     
-    "entity_id" :["datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Pune Railway Station_2811"],
+    "entity_id" :["iisc.ac.in/89a36273d77dac4cf38114fca1bbe64392547f86/rs.iudx.io/sdktestitem"],
 
-    "token" : ["authdev.iudx.io/srikrishnan@datakaveri.org/034ae46f59c9e1f4177c924dcc9b157c/37e07e83-41b9-4009-9318-b3c290fea4a1"]
+    "token" : ["authtest.iudx.io/srikrishnan@datakaveri.org/eb98443db33af8799115f2a81378f9de"]
 }

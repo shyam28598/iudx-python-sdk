@@ -4,6 +4,7 @@ Catalogue.py
 """
 
 from iudx.auth.Token import Token
+import json
 from typing import TypeVar, Generic, Any, List, Dict
 
 from requests.models import Response
@@ -175,6 +176,7 @@ iid
         """
         url = self.url + "/item"
         http_entity = HTTPEntity()
+        item = json.dumps(item)
         response :  HTTPResponse  = http_entity.post(url, item, self.headers)
         result_data = response.get_json()
         
@@ -194,6 +196,7 @@ iid
         """
         url = self.url + "/item"
         http_entity = HTTPEntity()
+        item = json.dumps(item)
         response :  HTTPResponse  = http_entity.update(url, item, self.headers)
         result_data = response.get_json()
 
