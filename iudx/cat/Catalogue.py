@@ -88,7 +88,7 @@ class Catalogue():
 
     def list_entity(self, entity_type: str) -> CatalogueResult:
         """Method to get the list response for entities, based on an entity type.
-
+iid
         Args:
             entity_type (String): type must be either resource,
                 resourceGroup, resourceServer.
@@ -175,7 +175,7 @@ class Catalogue():
         """
         url = self.url + "/item"
         http_entity = HTTPEntity()
-        response :  HTTPResponse  = http_entity.post(url, self.item, self.token)
+        response :  HTTPResponse  = http_entity.post(url, item, self.headers)
         result_data = response.get_json()
         
         cat_result = CatalogueResult()
@@ -194,7 +194,7 @@ class Catalogue():
         """
         url = self.url + "/item"
         http_entity = HTTPEntity()
-        response :  HTTPResponse  = http_entity.update(url, self.item, self.token)
+        response :  HTTPResponse  = http_entity.update(url, item, self.headers)
         result_data = response.get_json()
 
         cat_result = CatalogueResult()
@@ -214,7 +214,7 @@ class Catalogue():
         url = self.url + "/item"
         url = url + "?" + "id=" + iid
         http_entity = HTTPEntity()
-        response :  HTTPResponse  = http_entity.delete(url, self.token)
+        response :  HTTPResponse  = http_entity.delete(url, self.headers)
         result_data = response.get_json()
         
         cat_result = CatalogueResult()

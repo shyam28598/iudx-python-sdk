@@ -40,13 +40,92 @@
     ],
     
     "create_entity":{
+        "type": [
+          "iudx:ResourceGroup",
+          "iudx:EnvFlood"
+        ],
+        "description": "Flood level sensors in Pune city.",
+        "itemCreatedAt": "2020-09-28T07:55:10+0530",
+        "id": "iisc.ac.in/89a36273d77dac4cf38114fca1bbe64392547f86/rs.iudx.io/pune-env-flood",
+        "label": "Pune Flood Sensors",
+        "location": {
+          "type": "Place",
+          "address": "Pune, Maharashtra"
+        },
         "@context": "https://voc.iudx.org.in/",
-        "name": "example_name",
-        "type": ["iudx:Resource"],
-        "instance": "Pune"
-    },
+        "itemStatus": "ACTIVE",
+        "name": "sdktestitem",
+        "provider": "iisc.ac.in/89a36273d77dac4cf38114fca1bbe64392547f86",
+        "accessPolicy": "OPEN",
+        "tags": [
+          "flooding",
+          "water flooding",
+          "flood",
+          "flood alert",
+          "flood danger",
+          "level",
+          "river",
+          "river bed"
+        ],
+        "resourceType": "MESSAGESTREAM",
+        "resourceServer": "datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io",
+        "dataSample": {
+          "referenceLevel": 4.2,
+          "measuredDistance": 3.22,
+          "observationDateTime": "2020-09-16T13:30:00+05:30",
+          "currentLevel": 0.98
+        },
+        "dataDescriptor": {
+          "type": [
+            "iudx:DataDescriptor",
+            "iudx:EnvFlood"
+          ],
+          "referenceLevel": {
+            "dataSchema": "iudx:Number",
+            "type": [
+              "ValueDescriptor"
+            ],
+            "description": "Reference setting used to compute the currentLevel.",
+            "unitCode": "MTR",
+            "unitText": "meter"
+          },
+          "description": "Data Descriptor for flood sensor data.",
+          "dataDescriptorLabel": "Data Descriptor for flood-level sensor data in Pune city",
+          "measuredDistance": {
+            "dataSchema": "iudx:Number",
+            "type": [
+              "ValueDescriptor"
+            ],
+            "description": "The distance measured by the sensor, from the sensor tip to the upper surface of water.",
+            "unitCode": "MTR",
+            "unitText": "meter"
+          },
+          "observationDateTime": {
+            "type": [
+              "ValueDescriptor"
+            ],
+            "dataSchema": "iudx:DateTime",
+            "description": "Last reported time of observation."
+          },
+          "currentLevel": {
+            "dataSchema": "iudx:Number",
+            "type": [
+              "ValueDescriptor"
+            ],
+            "description": "Current flooding level indicated by the sensing station corresponding to this observation, computed using referenceLevel and measuredDistance(currentLevel = referenceLevel - measuredDistance).",
+            "unitCode": "MTR",
+            "unitText": "meter"
+          },
+          "@context": "https://voc.iudx.org.in/"
+        },
+        "iudxResourceAPIs": [
+          "ATTR",
+          "TEMPORAL"
+        ],
+        "instance": "pune"
+      },
     
-    "entity_id" :["datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Pune Railway Station_2811"]
+    "entity_id" :["datakaveri.org/f7e044eee8122b5c87dce6e7ad64f3266afa41dc/rs.iudx.io/aqm-bosch-climo/Pune Railway Station_2811"],
 
-
+    "token" : ["authdev.iudx.io/srikrishnan@datakaveri.org/034ae46f59c9e1f4177c924dcc9b157c/37e07e83-41b9-4009-9318-b3c290fea4a1"]
 }

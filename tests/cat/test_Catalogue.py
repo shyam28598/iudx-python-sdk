@@ -1,7 +1,7 @@
 '''
     This script creates a test user and display
 '''
-# import pytest
+import pytest
 import unittest
 import json
 import sys
@@ -14,9 +14,8 @@ class CatalogueTest(unittest.TestCase):
     """Test different scenarios for the Catalogue class.
     """
     def setUp(self):
-        self.testVector = {}
-        with open("./tests/cat/testVector_Catalogue.json", "r") as f:
-            self.testVector = json.load(f)
+        pass
+        
 
     def tearDown(self):
         pass
@@ -25,12 +24,18 @@ class CatalogueTest(unittest.TestCase):
         """CatalogueTest base class constructor
         """
         super(CatalogueTest, self).__init__(*args, **kwargs)
+        self.testVector = {}
+        with open("./tests/cat/testVector_Catalogue.json", "r") as f:
+            self.testVector = json.load(f)
         self.cat = Catalogue(
             cat_url="https://api.catalogue.iudx.io/iudx/cat/v1",
-            headers={"content-type": "application/json"}
+            headers={"content-type": "application/json",
+            "token" : self.testVector["token"][0]
+            }
+            
             )
         self.cat_query = CatalogueQuery()
-
+        print(self.testVector["create_entity"])
     def test_search_entity(self):
         """Function to test the search entity query.
         """
@@ -82,7 +87,7 @@ class CatalogueTest(unittest.TestCase):
             print("*"*30)
     
     def test_create_entity(self):
-            result = self.cat.get_item(self.testVector["create_entity"])
+            result = self.cat.create_item(self.testVector["create_entity"])
             print(f"DOCUMENTS: {result.documents}")
             print(f"STATUS: {result.status}")
 
@@ -92,11 +97,11 @@ class CatalogueTest(unittest.TestCase):
             print(f"DOCUMENTS: {result.documents}")
             print(f"STATUS: {result.status}")
 
-    def test_delete_entity(self):
-        for entity in self.testVector["entity_id"]:
-            result = self.cat.delete_item(entity[0])
-            print(f"DOCUMENTS: {result.documents}")
-            print(f"STATUS: {result.status}")
+    # def test_delete_entity(self):
+    #     for entity in self.testVector["entity_id"]:
+    #         result = self.cat.delete_item(entity[0])
+    #         print(f"DOCUMENTS: {result.documents}")
+    #         print(f"STATUS: {result.status}")
 
 
 
